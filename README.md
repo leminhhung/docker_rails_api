@@ -58,3 +58,9 @@ docker-compose run web rails db:migrate
 
 ## status code github
 https://gist.github.com/mlanett/a31c340b132ddefa9cca
+
+###### LOGIN VIA FACEBOOK API ######
+- gem "koala", "~> 3.0.0"
+- init facebook application: https://developers.facebook.com/ -> get appID, secrecID
+- Run add more column: docker-compose run web rails g migration add_fields_to_users uid:string provider:string image:string
+- docker-compose run web rails db:migrate
