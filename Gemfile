@@ -42,3 +42,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.8.0"
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 gem "koala", "~> 3.0.0"
+gem 'faker'
+gem 'active_model_serializers', '~>0.10.0'

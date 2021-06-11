@@ -64,3 +64,19 @@ https://gist.github.com/mlanett/a31c340b132ddefa9cca
 - init facebook application: https://developers.facebook.com/ -> get appID, secrecID
 - Run add more column: docker-compose run web rails g migration add_fields_to_users uid:string provider:string image:string
 - docker-compose run web rails db:migrate
+
+
+#### ADDING BOOK & REVIEW MODEL ####
+# add models
+- docker-compose run web rails g model Book image:string author:string title:string
+- docker-compose run web rails db:migrate
+- docker-compose run web rails g model Review title:string content_rating:integer recommend_rating:integer averate_rating:float user:references book:references
+- docker-compose run web rails db:migrate
+# add controllers
+- gem 'faker' # to generate fake data
+- docker-compose run web rake db:seed
+# add serializer
+- gem 'active_model_serializers', '~>0.10.0'
+- docker-compose run web rails g serializer book
+- docker-compose run web rails g serializer review
+- docker-compose run web rails g serializer user
