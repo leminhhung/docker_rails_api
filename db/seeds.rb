@@ -5,11 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+p "Seeeding 10 users"
+10.times do |u|
+    User.create! email: Faker::Internet.email,
+        password: "123456"
+end
+
 
 p "Seeding 20 books"
-
 20.times do |n|
     Book.create! title: Faker::Book.title,
         author: Faker::Book.author,
         image: Faker::Avatar.image
+end
+
+
+p "Seeding 100 reviews"
+100.times do |n|
+    Review.create! title: "Best book ever",
+    content_rating: Faker::Number.between(from: 1, to: 10),
+    recommend_rating: Faker::Number.between(from: 1, to: 10),
+    user_id: Faker::Number.between(from: 1, to: 10),
+    book_id: Faker::Number.between(from: 1, to: 20)
 end

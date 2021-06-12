@@ -31,10 +31,11 @@ RUN apk update && \
 # will be cached unless changes to one of those two files 
 # are made.
 COPY Gemfile Gemfile.lock ./ 
-RUN gem install bundler && \
-    bundle config build.nokogiri --use-system-libraries && \
-    QMAKE=/usr/lib/qt5/bin/qmake bundle install && \
-    bundle clean --force
+# RUN gem install bundler && \
+#     bundle config build.nokogiri --use-system-libraries && \
+#     QMAKE=/usr/lib/qt5/bin/qmake bundle install && \
+#     bundle clean --force
+RUN bundle install
 
 # Copy the main application.
 COPY . ./

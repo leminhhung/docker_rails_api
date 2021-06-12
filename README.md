@@ -80,3 +80,13 @@ https://gist.github.com/mlanett/a31c340b132ddefa9cca
 - docker-compose run web rails g serializer book
 - docker-compose run web rails g serializer review
 - docker-compose run web rails g serializer user
+
+### IMPROVEMENT PERFORMANCE RAILS (improvement sql)#####
+# add gem counter_culter
+- gem 'counter_culture', '~> 2.0'
+- docker-compose run web rails generate counter_culture Book reviews_count 
+- docker-compose run web rails db:migrate
+- docker-compose run web rails db:setup
+- gem 'bullet', '~> 6.1'
+# add gem bullet
+- gem 'bullet', '~> 6.1'

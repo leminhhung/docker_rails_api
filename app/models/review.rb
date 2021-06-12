@@ -1,8 +1,9 @@
 class Review < ApplicationRecord
+  before_save :calculate_average_rating
   belongs_to :user
   belongs_to :book
 
-  before_save :calculate_average_rating
+  counter_culture :book
 
   def calculate_average_rating
     self.averate_rating = ((self.content_rating.to_f + self.recommend_rating.to_f)/2).round(1)
